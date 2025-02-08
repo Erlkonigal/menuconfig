@@ -6,7 +6,7 @@ cc := gcc
 all : prepare mconf conf
 
 %.o : %.c
-	gcc -c $(CFLAGS) $(LDFLAGS) $< -o $@
+	gcc -c $(CFLAGS) -fPIE $(LDFLAGS) $< -o $@
 
 prepare :
 	cp zconf.hash.c_shipped zconf.hash.c
