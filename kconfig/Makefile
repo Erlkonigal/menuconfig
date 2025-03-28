@@ -3,15 +3,10 @@ LDFLAGS := -lncurses
 
 cc := gcc
 
-all : prepare mconf conf
+all : mconf conf
 
 %.o : %.c
 	gcc -c $(CFLAGS) -fPIE $(LDFLAGS) $< -o $@
-
-prepare :
-	cp zconf.hash.c_shipped zconf.hash.c
-	cp zconf.lex.c_shipped zconf.lex.c
-	cp zconf.tab.c_shipped zconf.tab.c
 
 mconf : lxdialog/menubox.o lxdialog/yesno.o lxdialog/textbox.o  \
 	lxdialog/inputbox.o lxdialog/util.o lxdialog/checklist.o \

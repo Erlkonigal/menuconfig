@@ -11,9 +11,6 @@ ifeq ($(quiet),silent_)
 silent := -s
 endif
 
-test:test.c
-	gcc $(CFLAGS) $< -o $@
-
 menuconfig : $(obj)/mconf $(obj)/conf
 	$(Q)$< $(Kconfig)
 	$(Q)$(MAKE) silentoldconfig
